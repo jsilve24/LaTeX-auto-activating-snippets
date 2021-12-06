@@ -342,6 +342,7 @@ it is restored only once."
                                   ("ip1" "_{i+1}")
                                   ("im1" "_{i-1}")
                                   ("jj"  laas-insert-script)
+				  ("ij"  laas-insert-script)
                                   ("jp1" "_{j+1}")
                                   ("jm1" "_{j-1}")
                                   ("nn"  laas-insert-script)
@@ -402,7 +403,7 @@ ab/ => \\frac{ab}{}
   (not (eq (char-before) ?\\)))
 
 
-(apply #'aas-set-snippets 'laas-mode laas-basic-snippets)
+;; (apply #'aas-set-snippets 'laas-mode laas-basic-snippets)
 (apply #'aas-set-snippets 'laas-mode laas-subscript-snippets)
 (apply #'aas-set-snippets 'laas-mode laas-frac-snippet)
 (apply #'aas-set-snippets 'laas-mode laas-accent-snippets)
