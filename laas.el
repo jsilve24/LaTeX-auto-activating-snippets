@@ -99,7 +99,7 @@ insert a new subscript (e.g a -> a_1)."
   (save-excursion
     (goto-char (or point (point)))
     (cond
-     ((memq (char-before) '(?\) ?\]))
+     ((memq (char-before) '(?\) ?\] ?\$))
       (backward-sexp)
       (point))
      ((= (char-before) ?})
