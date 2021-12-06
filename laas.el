@@ -99,7 +99,7 @@ insert a new subscript (e.g a -> a_1)."
   (save-excursion
     (goto-char (or point (point)))
     (cond
-     ((memq (char-before) '(?\) ?\] ?\$))
+     ((memq (char-before) '(?\) ?\] ?\$)) ; add $ environment symbol
       (backward-sexp)
       (point))
      ((= (char-before) ?})
@@ -116,7 +116,9 @@ insert a new subscript (e.g a -> a_1)."
           (<= ?A (char-before) ?Z)
           (<= ?0 (char-before) ?9))
       (backward-word)
-      (when (= (char-before) ?\\) (backward-char))
+      (when
+	  (when (char-before) 		; make sure there is char before :)
+	    (= (char-before) ?\\) (backward-char)))
       (when (memq (char-before) '(?_ ?^ ?.))
         (backward-char)
         (goto-char (laas-identify-adjacent-tex-object))) ; yay recursion
